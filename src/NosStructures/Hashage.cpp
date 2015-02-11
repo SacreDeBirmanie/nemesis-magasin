@@ -10,7 +10,7 @@
 
 //Constructeur
 template<typename K, typename V>
-Hashage<K,V>::Hashage() {}
+Hashage<K,V>::Hashage() : hacher(new fonctionsDeHashage()){}
 
 
 //Destructeur
@@ -21,7 +21,7 @@ Hashage<K,V>::~Hashage() {}
 //Fonction de hachage
 template<typename K, typename V>
 int Hashage<K,V>::hash(K cle) {
-   return hacher->hash(cle);
+   return hacher->hash(cle,TAILLE);
 }
 
 //ajoute le couple (clf,valr) ou change la valeur associée à clf s'il y en avait une
@@ -43,7 +43,7 @@ bool Hashage<K,V>::estVide(){
 
 
 template <typename K,typename V>
-V Hashage<K,V>::valeurAssociee(K clf){
+V Hashage<K,V>::valeurAssocie(K clf){
     return this->list[hash(clf)].valeurAssociee(clf);
 }
 
