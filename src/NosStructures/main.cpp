@@ -2,7 +2,7 @@
 #include <iostream>
 
 
-#include "Hashage.hpp"
+#include "Hashage.cpp"
 
 using namespace std;
 
@@ -28,11 +28,12 @@ int main(){
 	cout<<liste1->estClef(1)<<endl;
 	
 	int N;
-	set<int> ens;
+	vector<int> ens;
 	ens = liste1->trousseau(N);
+
 	
 	std::cout << "[" << std::endl;
-	for(std::set<int>::iterator it=ens.begin(); it!=ens.end(); ++it)
+	for(std::vector<int>::iterator it=ens.begin(); it!=ens.end(); ++it)
     std::cout << *it << std::endl;
     std::cout << "]" << std::endl;
 

@@ -58,7 +58,7 @@ template <typename K, typename V>
 V AListe<K,V>::valeurAssocie(K clf){
 	
 	maillon * courant = this->tete;
-	V res = NULL;
+	V res;
 	bool trouve = false;
 	
 	while(courant != NULL && trouve==false){
@@ -113,8 +113,8 @@ bool AListe<K,V>::estClef(K clf){
 		return trouve;
 }
 template <typename K, typename V>
-std::set<K> AListe<K,V>::trousseau(int & N ){
-	std::set<K> clfs ;
+std::vector<K> AListe<K,V>::trousseau(int & N ){
+	std::vector<K> clfs ;
 	if(estALVide()){
 		N = 0;
 	}
@@ -123,7 +123,7 @@ std::set<K> AListe<K,V>::trousseau(int & N ){
 		maillon * courant = this->tete;
 		
 		while(courant !=NULL){
-			clfs.insert(courant->clf);
+			clfs.push_back(courant->clf);
 			N = N + 1;
 			courant = courant->suivant;
 		}

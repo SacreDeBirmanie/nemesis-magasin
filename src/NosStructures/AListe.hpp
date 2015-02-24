@@ -1,7 +1,7 @@
 #ifndef ALISTE_HPP
 #define ALISTE_HPP
 
-#include <set>
+#include <vector>
 template <typename K, typename V>
 class AListe{
 	private:
@@ -32,7 +32,7 @@ class AListe{
 		V valeurAssocie(K clf); //donne la valeur associée à la clef clf
 		void dissocier(K clf); //supprime le couple (clf,.) ; ne fait rien s'il n'y en a pas
 		bool estClef(K clf); //teste l'existence d'un couple (clf,.)
-		std::set<K> trousseau(int & N); // mets les clefs présentes dans un ensemble et la taille dans N passé en référence
+		std::vector<K> trousseau(int & N); // mets les clefs présentes dans un ensemble et la taille dans N passé en référence
 		
 };
 
