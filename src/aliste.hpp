@@ -1,6 +1,6 @@
 /**
  * @file aliste.hpp
- * @author Gonnord Kevin 
+ * @author Gonnord Kevin, Vallée Sébastien
  * @since 11/02/2015
  * @brief Définition du type AListe générique par type des clefs et des valeurs
 **/
@@ -116,5 +116,5 @@ class Aliste
 
 #include "aliste.tpp" // définition des méthodes 
 /******************************************************************************/
-// K.Gonnord , M.Minot
+// K.Gonnord, S.Vallée 
 #endif // ALISTE_HPP

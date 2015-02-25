@@ -1,7 +1,9 @@
-/* 
-	Definition des méthodes de Aliste
-
-*/
+/**
+ * @file aliste.tpp
+ * @author Gonnord Kevin, Vallée Sébastien
+ * @since 11/02/2015
+ * @brief Définition des méthodes de la classe AListe
+**/
 #include <assert.h>
 using namespace std;
 
