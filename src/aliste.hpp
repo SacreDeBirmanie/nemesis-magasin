@@ -1,12 +1,13 @@
 /**
  * @file aliste.hpp
- * @author Gonnord Kevin, Vallée Sébastien
+ * @author Gonnord Kevin 
  * @since 11/02/2015
  * @brief Définition du type AListe générique par type des clefs et des valeurs
 **/
 
 #ifndef ALIST_HPP
 #define ALIST_HPP
+#include <vector>
 
 /**
  * @class Aliste<K,V> aliste.hpp
@@ -110,11 +111,11 @@ class Aliste
 		* @b Complexité Θ(n), n = nombre de couples stockés
 		*/
 		
-		void trousseau( K * clf, int & N);
+		std::vector<K> trousseau();
 
 }; // class Aliste<K,V>
 
 #include "aliste.tpp" // définition des méthodes 
 /******************************************************************************/
-// K.Gonnord, S.Vallée 
+// K.Gonnord , M.Minot
 #endif // ALISTE_HPP

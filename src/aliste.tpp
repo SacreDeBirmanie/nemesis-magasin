@@ -1,9 +1,7 @@
-/**
- * @file aliste.tpp
- * @author Gonnord Kevin, Vallée Sébastien
- * @since 11/02/2015
- * @brief Définition des méthodes de la classe AListe
-**/
+/* 
+	Definition des méthodes de Aliste
+
+*/
 #include <assert.h>
 using namespace std;
 
@@ -133,18 +131,19 @@ void Aliste< k, v > :: dissocier(k clef)
 
 //////////////////////////////////////////////////////////////////////////
 template < typename k, typename v >
-void Aliste< k, v > :: trousseau(k*clfs, int & N)
+std::vector<k> Aliste< k, v > :: trousseau()
 {
+	std::vector<k> clfs;
 	Maillon * c;		// maillon de parcours
 	int i = 0;		// indice du tableau
 
-	N = ch.nb_elt;		// nombre d'éléments
 	c=ch.tete;		// maillon de parcours initialisé à la tête
 	while ( c != NULL) {	// tant que le maillon de parcours pointe sur un maillon du chainage
-		clfs[i] = (*c).clef;	// on stocke les clefs de chaque maillon dans le tableau donné en paramètre
+		clfs.push_back((*c).clef);	// on stocke les clefs de chaque maillon dans le tableau donné en paramètre
 		i = i+1;		// on met a jours l'indice
 		c = (*c).succ;		// on passe au maillon suivant
 	}		
+	return clfs;
 }
 
 
