@@ -15,12 +15,20 @@ int main(){
 	liste1->associer(2,3);
 	liste1->associer(3,1);
 	liste1->associer(4,5);
+	liste1->associer(51,74);
+	liste1->associer(102,56);
+	liste1->associer(101,45);
 	liste1->associer(23,50);
+	liste1->associer(18,45);
+	liste1->associer(26,15);
+	liste1->associer(30,50);
+	liste1->associer(59,78);
+	liste1->associer(501,12);
 	
-	cout<<liste1->valeurAssocie(23)<<endl;
+	cout<<liste1->valeurAssociee(23)<<endl;
 	liste1->associer(23,12);
-	cout<<liste1->valeurAssocie(23)<<endl;
-	cout<<liste1->valeurAssocie(3)<<endl;
+	cout<<liste1->valeurAssociee(23)<<endl;
+	cout<<liste1->valeurAssociee(3)<<endl;
 	cout<<liste1->estClef(50)<<endl;
 	cout<<liste1->estClef(2)<<endl;
 	cout<<liste1->estClef(1)<<endl;
@@ -29,7 +37,7 @@ int main(){
 	
 	int N;
 	vector<int> ens;
-	ens = liste1->trousseau(N);
+	ens = liste1->trousseau();
 
 	
 	std::cout << "[" << std::endl;

@@ -32,15 +32,6 @@ void Hashage<K,V>::associer(K clf,V valr){
 	indices.insert(hashageur);
 }
 
-/*template <typename K,typename V>
-bool Hashage<K,V>::estVide(){
-    bool res = true;
-    for(int i=0;i<TAILLE;i++){
-        if(!this->list[i].estALVide())
-            res=false;
-    }
-    return res;
-}*/
 
 template <typename K,typename V>
 bool Hashage<K,V>::estVide(){
@@ -49,15 +40,15 @@ bool Hashage<K,V>::estVide(){
 }
 
 template <typename K,typename V>
-V Hashage<K,V>::valeurAssocie(K clf){
-    return this->list[hash(clf)].valeurAssocie(clf);
+V Hashage<K,V>::valeurAssociee(K clf){
+    return this->list[hash(clf)].valeurAssociee(clf);
 }
 
 template <typename K,typename V>
 void Hashage<K,V>::dissocier(K clf){
 	int hashageur = hash(clf);
     this->list[hashageur].dissocier(clf);
-    if(this->list[hashageur].estALVide())
+    if(this->list[hashageur].estVide())
 		indices.erase(hashageur);
     
 }
@@ -69,18 +60,18 @@ bool Hashage<K,V>::estClef(K cle){
 }
 
 template <typename K,typename V>
-std::vector<K> Hashage<K,V>::trousseau(int & N ){
+std::vector<K> Hashage<K,V>::trousseau(){
     std::vector<K> clfs;
     int j,taille;
     if(! this->estVide() ) {
-		std::cout<<TAILLE<<std::endl;
         std::set<int>::iterator it = this->indices.begin() ;
 		for (it ; it != this->indices.end() ; it ++)
 		{
            std::vector<K> temp; //on crée un tableau temporaire stockant les clef de la AList courante
-            std::cout<<"parcour de "<<*it<<std::endl;
-			temp = (this->list[*it]).trousseau(taille); //on applique trousseau(...) sur la AList courante
-            N += taille; //on met à jour la taille de N
+			temp = (this->list[*it]).trousseau(); //on applique trousseau(...) sur la AList courante
+			
+			taille = int(temp.size());
+            
             for(j = 0; j < taille; j++) { //on parcours le liste des clefs dans le tableau temporaire
                 clfs.push_back(temp[j]); //on l'ajoute au tableau de réponse
             }
