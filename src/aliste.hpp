@@ -62,9 +62,9 @@ class Aliste
 		/**
 		* @brief Ajout/Modification d'un couple
 		* @param clef la clé du couple à ajouter/modifier
-		* @param valr la valeur a lui associer
+		* @param valr la valeur à lui associer
 		* 
-		* @b Complexité O(log(n)), n = nombre de couples stockés
+		* @b Complexité O(n), n = nombre de couples stockés
 		*/
 		void associer(K clef, V valr);
 
@@ -80,7 +80,7 @@ class Aliste
 		* @brief Accès à la valeur associée à une clef
 		* @param clf la clef recherchée
 		* @return la valeur associée
-		* @pre il existe un couple contenant clf dans la Mappe
+		* @pre il existe un couple contenant clf dans la Aliste
 		* 
 		* @b Complexité O(log(n)), n = nombre de couples stockés
 		*/
@@ -89,26 +89,26 @@ class Aliste
 		/**
 		* @brief Suppression d'un couple
 		* @param clf la clef du couple à supprimer
-		* @attention Ne fait rien si aucun couple n'existe pour cette clef dans la Mappe
+		* @attention Ne fait rien si aucun couple n'existe pour cette clef dans la Aliste
 		* 
-		* @b Complexité O(log(n)), n = nombre de couples stockés
+		* @b Complexité O(n), n = nombre de couples stockés
 		*/
 		void dissocier(K clf);
 
 		/**
 		* @brief Test de la présence d'un couple
 		* @param clf la clef du couple à rechercher
-		* @return vrai ssi il existe un couple de clef clf dans la Mappe
+		* @return vrai ssi il existe un couple de clef clf dans la Aliste
 		* 
-		* @b Complexité O(log(n)), n = nombre de couples stockés
+		* @b Complexité O(n), n = nombre de couples stockés
 		*/
 		bool estClef(K clf) const;
 
 		/**
 		* @brief Accès à l'ensemble des clefs
-		* @return un tableau contenant toutes les clefs utilisées dans la Mappe
+		* @return un tableau contenant toutes les clefs utilisées dans la Aliste
 		* 
-		* @b Complexité Θ(n), n = nombre de couples stockés
+		* @b Complexité O(n), n = nombre de couples stockés
 		*/
 		
 		std::vector<K> trousseau();
@@ -117,5 +117,5 @@ class Aliste
 
 #include "aliste.tpp" // définition des méthodes 
 /******************************************************************************/
-// K.Gonnord , M.Minot
+// K.Gonnord , S.Minot
 #endif // ALISTE_HPP

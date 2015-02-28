@@ -1,0 +1,161 @@
+\hypertarget{class_mappe}{}\section{Mappe$<$ K, V $>$ Class Template Reference}
+\label{class_mappe}\index{Mappe$<$ K, V $>$@{Mappe$<$ K, V $>$}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_mappe_a44cd4d952786b33abd6d16fde9c832ae}{Mappe} ()
+\begin{DoxyCompactList}\small\item\em Constructeur, crée une \hyperlink{class_mappe}{Mappe} vide. \end{DoxyCompactList}\item 
+\hyperlink{class_mappe_af0021fa8eec4be985806f56f9fd4fbd1}{$\sim$\+Mappe} ()
+\begin{DoxyCompactList}\small\item\em Destructeur, libère la mémoire. \end{DoxyCompactList}\item 
+void \hyperlink{class_mappe_ad11c730e4adbe884e4bad8e18103fa36}{associer} (K clf, V valr)
+\begin{DoxyCompactList}\small\item\em Ajout/\+Modification d\textquotesingle{}un couple. \end{DoxyCompactList}\item 
+bool \hyperlink{class_mappe_a15f2881d3d6e6c41b433c7b9b5dbb6b0}{est\+Vide} () const 
+\begin{DoxyCompactList}\small\item\em Test de l\textquotesingle{}absence de couple. \end{DoxyCompactList}\item 
+V \hyperlink{class_mappe_a6c2ff69dc18c04a577f0d4c49a37a03a}{valeur\+Associee} (K clf) const 
+\begin{DoxyCompactList}\small\item\em Accès à la valeur associée à une clef. \end{DoxyCompactList}\item 
+void \hyperlink{class_mappe_ae98a4839efd01b81a274febbad6fcbd1}{dissocier} (K clf)
+\begin{DoxyCompactList}\small\item\em Suppression d\textquotesingle{}un couple. \end{DoxyCompactList}\item 
+bool \hyperlink{class_mappe_ae3008f8e40e846079108171a2ecbd5b5}{est\+Clef} (K clf) const 
+\begin{DoxyCompactList}\small\item\em Test de la présence d\textquotesingle{}un couple. \end{DoxyCompactList}\item 
+std\+::vector$<$ K $>$ \hyperlink{class_mappe_a7f32353d22f5e8c51f0bd21bc41e0069}{trousseau} () const 
+\begin{DoxyCompactList}\small\item\em Accès à l\textquotesingle{}ensemble des clefs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_mappe_a44cd4d952786b33abd6d16fde9c832ae}{}\index{Mappe@{Mappe}!Mappe@{Mappe}}
+\index{Mappe@{Mappe}!Mappe@{Mappe}}
+\subsubsection[{Mappe}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename K , typename V $>$ {\bf Mappe}$<$ K, V $>$\+::{\bf Mappe} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_mappe_a44cd4d952786b33abd6d16fde9c832ae}
+
+
+Constructeur, crée une \hyperlink{class_mappe}{Mappe} vide. 
+
+{\bfseries Complexité} Θ(1) \hypertarget{class_mappe_af0021fa8eec4be985806f56f9fd4fbd1}{}\index{Mappe@{Mappe}!````~Mappe@{$\sim$\+Mappe}}
+\index{````~Mappe@{$\sim$\+Mappe}!Mappe@{Mappe}}
+\subsubsection[{$\sim$\+Mappe}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename K , typename V $>$ {\bf Mappe}$<$ K, V $>$\+::$\sim${\bf Mappe} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_mappe_af0021fa8eec4be985806f56f9fd4fbd1}
+
+
+Destructeur, libère la mémoire. 
+
+{\bfseries Complexité} Θ(nbc), nbc = nombre de couples stockés 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_mappe_ad11c730e4adbe884e4bad8e18103fa36}{}\index{Mappe@{Mappe}!associer@{associer}}
+\index{associer@{associer}!Mappe@{Mappe}}
+\subsubsection[{associer}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename K , typename V $>$ void {\bf Mappe}$<$ K, V $>$\+::associer (
+\begin{DoxyParamCaption}
+\item[{K}]{clf, }
+\item[{V}]{valr}
+\end{DoxyParamCaption}
+)}\label{class_mappe_ad11c730e4adbe884e4bad8e18103fa36}
+
+
+Ajout/\+Modification d\textquotesingle{}un couple. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clf} & la clé du couple à ajouter/modifier \\
+\hline
+{\em valr} & la valeur a lui associer\\
+\hline
+\end{DoxyParams}
+{\bfseries Complexité} O(log(nbc)), nbc = nombre de couples stockés \hypertarget{class_mappe_ae98a4839efd01b81a274febbad6fcbd1}{}\index{Mappe@{Mappe}!dissocier@{dissocier}}
+\index{dissocier@{dissocier}!Mappe@{Mappe}}
+\subsubsection[{dissocier}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename K , typename V $>$ void {\bf Mappe}$<$ K, V $>$\+::dissocier (
+\begin{DoxyParamCaption}
+\item[{K}]{clf}
+\end{DoxyParamCaption}
+)}\label{class_mappe_ae98a4839efd01b81a274febbad6fcbd1}
+
+
+Suppression d\textquotesingle{}un couple. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clf} & la clef du couple à supprimer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAttention}{Attention}
+Ne fait rien si aucun couple n\textquotesingle{}existe pour cette clef dans la \hyperlink{class_mappe}{Mappe}
+\end{DoxyAttention}
+{\bfseries Complexité} O(log(nbc)), nbc = nombre de couples stockés \hypertarget{class_mappe_ae3008f8e40e846079108171a2ecbd5b5}{}\index{Mappe@{Mappe}!est\+Clef@{est\+Clef}}
+\index{est\+Clef@{est\+Clef}!Mappe@{Mappe}}
+\subsubsection[{est\+Clef}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename K , typename V $>$ bool {\bf Mappe}$<$ K, V $>$\+::est\+Clef (
+\begin{DoxyParamCaption}
+\item[{K}]{clf}
+\end{DoxyParamCaption}
+) const}\label{class_mappe_ae3008f8e40e846079108171a2ecbd5b5}
+
+
+Test de la présence d\textquotesingle{}un couple. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clf} & la clef du couple à rechercher \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vrai ssi il existe un couple de clef clf dans la \hyperlink{class_mappe}{Mappe}
+\end{DoxyReturn}
+{\bfseries Complexité} O(log(nbc)), nbc = nombre de couples stockés \hypertarget{class_mappe_a15f2881d3d6e6c41b433c7b9b5dbb6b0}{}\index{Mappe@{Mappe}!est\+Vide@{est\+Vide}}
+\index{est\+Vide@{est\+Vide}!Mappe@{Mappe}}
+\subsubsection[{est\+Vide}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename K , typename V $>$ bool {\bf Mappe}$<$ K, V $>$\+::est\+Vide (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_mappe_a15f2881d3d6e6c41b433c7b9b5dbb6b0}
+
+
+Test de l\textquotesingle{}absence de couple. 
+
+\begin{DoxyReturn}{Returns}
+vrai ssi aucun couple n\textquotesingle{}est stocké
+\end{DoxyReturn}
+{\bfseries Complexité} Θ(1) \hypertarget{class_mappe_a7f32353d22f5e8c51f0bd21bc41e0069}{}\index{Mappe@{Mappe}!trousseau@{trousseau}}
+\index{trousseau@{trousseau}!Mappe@{Mappe}}
+\subsubsection[{trousseau}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename K , typename V $>$ std\+::vector$<$K$>$ {\bf Mappe}$<$ K, V $>$\+::trousseau (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_mappe_a7f32353d22f5e8c51f0bd21bc41e0069}
+
+
+Accès à l\textquotesingle{}ensemble des clefs. 
+
+\begin{DoxyReturn}{Returns}
+un tableau contenant toutes les clefs utilisées dans la \hyperlink{class_mappe}{Mappe}
+\end{DoxyReturn}
+{\bfseries Complexité} Θ(nbc), nbc = nombre de couples stockés \hypertarget{class_mappe_a6c2ff69dc18c04a577f0d4c49a37a03a}{}\index{Mappe@{Mappe}!valeur\+Associee@{valeur\+Associee}}
+\index{valeur\+Associee@{valeur\+Associee}!Mappe@{Mappe}}
+\subsubsection[{valeur\+Associee}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename K , typename V $>$ V {\bf Mappe}$<$ K, V $>$\+::valeur\+Associee (
+\begin{DoxyParamCaption}
+\item[{K}]{clf}
+\end{DoxyParamCaption}
+) const}\label{class_mappe_a6c2ff69dc18c04a577f0d4c49a37a03a}
+
+
+Accès à la valeur associée à une clef. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clf} & la clef recherchée \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+la valeur associée 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+il existe un couple contenant clf dans la \hyperlink{class_mappe}{Mappe}
+\end{DoxyPrecond}
+{\bfseries Complexité} O(log(nbc)), nbc = nombre de couples stockés 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{mappe_8hpp}{mappe.\+hpp}\end{DoxyCompactItemize}

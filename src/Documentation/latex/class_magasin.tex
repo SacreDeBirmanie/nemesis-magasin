@@ -1,0 +1,238 @@
+\hypertarget{class_magasin}{}\section{Magasin$<$ Table\+Associative $>$ Class Template Reference}
+\label{class_magasin}\index{Magasin$<$ Table\+Associative $>$@{Magasin$<$ Table\+Associative $>$}}
+
+
+Patron de classe implémentant un magasin de Produits.  
+
+
+
+
+{\ttfamily \#include $<$magasin.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_magasin_a7f2bef14d6d884d2d68a7d4ec732a0e8}{Magasin} (std\+::string entrepot)
+\begin{DoxyCompactList}\small\item\em Constructeur, construit le magasin à partir d\textquotesingle{}un entrepôt. \end{DoxyCompactList}\item 
+const std\+::vector$<$ \hyperlink{class_produit}{Produit} $>$ \& \hyperlink{class_magasin_a7c08ae39d85b5ed27a7943cab6abbb5b}{catalogue} () const 
+\begin{DoxyCompactList}\small\item\em Accès (en lecture seulement) au catalogue de produits du magasin. \end{DoxyCompactList}\item 
+double \hyperlink{class_magasin_ac65a56398c0d534dfcd851a9e866445a}{tarif} (const \hyperlink{class_produit}{Produit} \&p) const 
+\begin{DoxyCompactList}\small\item\em Accès au prix unitaire d\textquotesingle{}un produit en catalogue. \end{DoxyCompactList}\item 
+unsigned int \hyperlink{class_magasin_ad1937ccac7657d152c69c9707b02dbc0}{stock} (const \hyperlink{class_produit}{Produit} \&p) const 
+\begin{DoxyCompactList}\small\item\em Accès au stock d\textquotesingle{}un produit. \end{DoxyCompactList}\item 
+void \hyperlink{class_magasin_a7971012fa641fb39bf5e1d9f45c212d8}{vendre} (const \hyperlink{class_produit}{Produit} \&p, unsigned int qt)
+\begin{DoxyCompactList}\small\item\em Vendre un produit à un client. \end{DoxyCompactList}\item 
+void \hyperlink{class_magasin_a25b9dff01611d98ff73818550e90d975}{solder} (const \hyperlink{class_produit}{Produit} \&p, unsigned int promo)
+\begin{DoxyCompactList}\small\item\em Appliquer une promotion au prix d\textquotesingle{}un produit en catalogue. \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{class_produit}{Produit} $>$ \hyperlink{class_magasin_a5c584ead4ae820ba3dacd401dc58b185}{inventaire} () const 
+\begin{DoxyCompactList}\small\item\em Identifier les produits du catalogue à réapprovisionner. \end{DoxyCompactList}\item 
+double \hyperlink{class_magasin_a01027ad25aaa0b76fdb0296ac8152fea}{capital} ()
+\begin{DoxyCompactList}\small\item\em Calculer le capital marchand du magasin. \end{DoxyCompactList}\item 
+double \hyperlink{class_magasin_adbf47feaf2339f8502e890ba795e368a}{nettoyage\+De\+Printemps} ()
+\begin{DoxyCompactList}\small\item\em Supprimer les produits inutiles du stock. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$template$<$ typename K, typename V $>$ class Table\+Associative$>$class Magasin$<$ Table\+Associative $>$}
+
+Patron de classe implémentant un magasin de Produits. 
+
+Le magasin dispose d\textquotesingle{}un catalogue de produits ; Il associe à chacun un prix unitaire et un stock ; Le paramètre template Table\+Associative$<$\+K,\+V$>$ définit la structure de stockage des informations ; il doit être conforme à la spécification de A\+Liste 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_magasin_a7f2bef14d6d884d2d68a7d4ec732a0e8}{}\index{Magasin@{Magasin}!Magasin@{Magasin}}
+\index{Magasin@{Magasin}!Magasin@{Magasin}}
+\subsubsection[{Magasin}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename K, typename V $>$ class Table\+Associative$>$ {\bf Magasin}$<$ Table\+Associative $>$\+::{\bf Magasin} (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{entrepot}
+\end{DoxyParamCaption}
+)}\label{class_magasin_a7f2bef14d6d884d2d68a7d4ec732a0e8}
+
+
+Constructeur, construit le magasin à partir d\textquotesingle{}un entrepôt. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entrepot} & le nom du fichier entreposant les produits et leurs informations \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAttention}{Attention}
+L\textquotesingle{}entrepôt peut contenir des produits dont le stock est nul ; en ce cas, ils sont ajoutés au catalogue et à la liste des prix, mais pas au stock ~\newline
+ {\itshape =$>$ le trousseau du stock peut différer du catalogue}
+\end{DoxyAttention}
+{\bfseries Complexité} Θ(nbp), nbp = nombre de produits dans le fichier entrepot 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_magasin_a01027ad25aaa0b76fdb0296ac8152fea}{}\index{Magasin@{Magasin}!capital@{capital}}
+\index{capital@{capital}!Magasin@{Magasin}}
+\subsubsection[{capital}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename K, typename V $>$ class Table\+Associative$>$ double {\bf Magasin}$<$ Table\+Associative $>$\+::capital (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_magasin_a01027ad25aaa0b76fdb0296ac8152fea}
+
+
+Calculer le capital marchand du magasin. 
+
+\begin{DoxyReturn}{Returns}
+le prix total des marchandises stockées
+\end{DoxyReturn}
+\begin{DoxyAttention}{Attention}
+À implémenter
+\end{DoxyAttention}
+{\bfseries Complexité} {\itshape À déterminer} \hypertarget{class_magasin_a7c08ae39d85b5ed27a7943cab6abbb5b}{}\index{Magasin@{Magasin}!catalogue@{catalogue}}
+\index{catalogue@{catalogue}!Magasin@{Magasin}}
+\subsubsection[{catalogue}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename K, typename V $>$ class Table\+Associative$>$ const std\+::vector$<${\bf Produit}$>$\& {\bf Magasin}$<$ Table\+Associative $>$\+::catalogue (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_magasin_a7c08ae39d85b5ed27a7943cab6abbb5b}
+
+
+Accès (en lecture seulement) au catalogue de produits du magasin. 
+
+\begin{DoxyReturn}{Returns}
+le catalogue (référence constante =$>$ donnée partagée mais immuable)
+\end{DoxyReturn}
+{\bfseries Complexité} Θ(1) \hypertarget{class_magasin_a5c584ead4ae820ba3dacd401dc58b185}{}\index{Magasin@{Magasin}!inventaire@{inventaire}}
+\index{inventaire@{inventaire}!Magasin@{Magasin}}
+\subsubsection[{inventaire}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename K, typename V $>$ class Table\+Associative$>$ std\+::vector$<${\bf Produit}$>$ {\bf Magasin}$<$ Table\+Associative $>$\+::inventaire (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_magasin_a5c584ead4ae820ba3dacd401dc58b185}
+
+
+Identifier les produits du catalogue à réapprovisionner. 
+
+\begin{DoxyReturn}{Returns}
+l\textquotesingle{}ensemble des produits dont le stock est inexistant ou strictement inférieur à 10 unités
+\end{DoxyReturn}
+\begin{DoxyAttention}{Attention}
+À implémenter
+\end{DoxyAttention}
+{\bfseries Complexité} {\itshape À déterminer} \hypertarget{class_magasin_adbf47feaf2339f8502e890ba795e368a}{}\index{Magasin@{Magasin}!nettoyage\+De\+Printemps@{nettoyage\+De\+Printemps}}
+\index{nettoyage\+De\+Printemps@{nettoyage\+De\+Printemps}!Magasin@{Magasin}}
+\subsubsection[{nettoyage\+De\+Printemps}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename K, typename V $>$ class Table\+Associative$>$ double {\bf Magasin}$<$ Table\+Associative $>$\+::nettoyage\+De\+Printemps (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_magasin_adbf47feaf2339f8502e890ba795e368a}
+
+
+Supprimer les produits inutiles du stock. 
+
+Un produit est inutile si sa valeur stockée (prix$\ast$quantité) est strictement inférieure à 10 \begin{DoxyReturn}{Returns}
+le prix total des produits jetées
+\end{DoxyReturn}
+\begin{DoxyAttention}{Attention}
+À implémenter
+\end{DoxyAttention}
+{\bfseries Complexité} {\itshape À déterminer} \hypertarget{class_magasin_a25b9dff01611d98ff73818550e90d975}{}\index{Magasin@{Magasin}!solder@{solder}}
+\index{solder@{solder}!Magasin@{Magasin}}
+\subsubsection[{solder}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename K, typename V $>$ class Table\+Associative$>$ void {\bf Magasin}$<$ Table\+Associative $>$\+::solder (
+\begin{DoxyParamCaption}
+\item[{const {\bf Produit} \&}]{p, }
+\item[{unsigned int}]{promo}
+\end{DoxyParamCaption}
+)}\label{class_magasin_a25b9dff01611d98ff73818550e90d975}
+
+
+Appliquer une promotion au prix d\textquotesingle{}un produit en catalogue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & le produit à solder \\
+\hline
+{\em promo} & un entier entre 1 et 99, le pourcentage de promotion \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+Le produit doit exister dans le catalogue
+\end{DoxyPrecond}
+\begin{DoxyAttention}{Attention}
+À implémenter
+\end{DoxyAttention}
+{\bfseries Complexité} {\itshape À déterminer} \hypertarget{class_magasin_ad1937ccac7657d152c69c9707b02dbc0}{}\index{Magasin@{Magasin}!stock@{stock}}
+\index{stock@{stock}!Magasin@{Magasin}}
+\subsubsection[{stock}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename K, typename V $>$ class Table\+Associative$>$ unsigned int {\bf Magasin}$<$ Table\+Associative $>$\+::stock (
+\begin{DoxyParamCaption}
+\item[{const {\bf Produit} \&}]{p}
+\end{DoxyParamCaption}
+) const}\label{class_magasin_ad1937ccac7657d152c69c9707b02dbc0}
+
+
+Accès au stock d\textquotesingle{}un produit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & le produit \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+la quantité du produit p en stock, ou 0 s\textquotesingle{}il n\textquotesingle{}est pas en stock 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+le produit est dans le catalogue
+\end{DoxyPrecond}
+\begin{DoxyAttention}{Attention}
+À implémenter
+\end{DoxyAttention}
+{\bfseries Complexité} {\itshape À déterminer} \hypertarget{class_magasin_ac65a56398c0d534dfcd851a9e866445a}{}\index{Magasin@{Magasin}!tarif@{tarif}}
+\index{tarif@{tarif}!Magasin@{Magasin}}
+\subsubsection[{tarif}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename K, typename V $>$ class Table\+Associative$>$ double {\bf Magasin}$<$ Table\+Associative $>$\+::tarif (
+\begin{DoxyParamCaption}
+\item[{const {\bf Produit} \&}]{p}
+\end{DoxyParamCaption}
+) const}\label{class_magasin_ac65a56398c0d534dfcd851a9e866445a}
+
+
+Accès au prix unitaire d\textquotesingle{}un produit en catalogue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & le produit \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+le prix unitaire du produit p 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+le produit est dans le catalogue
+\end{DoxyPrecond}
+\begin{DoxyAttention}{Attention}
+À implémenter
+\end{DoxyAttention}
+{\bfseries Complexité} {\itshape À déterminer} \hypertarget{class_magasin_a7971012fa641fb39bf5e1d9f45c212d8}{}\index{Magasin@{Magasin}!vendre@{vendre}}
+\index{vendre@{vendre}!Magasin@{Magasin}}
+\subsubsection[{vendre}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename K, typename V $>$ class Table\+Associative$>$ void {\bf Magasin}$<$ Table\+Associative $>$\+::vendre (
+\begin{DoxyParamCaption}
+\item[{const {\bf Produit} \&}]{p, }
+\item[{unsigned int}]{qt}
+\end{DoxyParamCaption}
+)}\label{class_magasin_a7971012fa641fb39bf5e1d9f45c212d8}
+
+
+Vendre un produit à un client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & produit \\
+\hline
+{\em qt} & la quantité à retirer au stock \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+Le produit doit exister dans le catalogue et être en quantité suffisante en stock 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+si sa quantité tombe à 0, le produit est retiré du stock
+\end{DoxyPostcond}
+\begin{DoxyAttention}{Attention}
+À implémenter
+\end{DoxyAttention}
+{\bfseries Complexité} {\itshape À déterminer} 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{magasin_8hpp}{magasin.\+hpp}\end{DoxyCompactItemize}

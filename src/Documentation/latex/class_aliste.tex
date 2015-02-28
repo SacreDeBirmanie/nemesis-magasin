@@ -1,0 +1,161 @@
+\hypertarget{class_aliste}{}\section{Aliste$<$ K, V $>$ Class Template Reference}
+\label{class_aliste}\index{Aliste$<$ K, V $>$@{Aliste$<$ K, V $>$}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_aliste_ac4c984dbf831565d54e4a820a957591b}{Aliste} ()
+\begin{DoxyCompactList}\small\item\em Constructeur, créé un \hyperlink{class_aliste}{Aliste} vide. \end{DoxyCompactList}\item 
+\hyperlink{class_aliste_a34faaac7b72f852f88b945551048554b}{$\sim$\+Aliste} ()
+\begin{DoxyCompactList}\small\item\em Desctructeur, libère la mémoire. \end{DoxyCompactList}\item 
+void \hyperlink{class_aliste_a38f9c7a4bb3e682a4d2ee6df881ad011}{associer} (K clef, V valr)
+\begin{DoxyCompactList}\small\item\em Ajout/\+Modification d\textquotesingle{}un couple. \end{DoxyCompactList}\item 
+bool \hyperlink{class_aliste_a37d800351e9fb2ec7b4fce0f1d2ef15d}{est\+Vide} () const 
+\begin{DoxyCompactList}\small\item\em Test de l\textquotesingle{}absence de couple. \end{DoxyCompactList}\item 
+V \hyperlink{class_aliste_a374b265c40c5dd4c72ea3ca6a18a4b92}{valeur\+Associee} (K clf) const 
+\begin{DoxyCompactList}\small\item\em Accès à la valeur associée à une clef. \end{DoxyCompactList}\item 
+void \hyperlink{class_aliste_a75b73a4cbf593d1fdf62d007ac08904e}{dissocier} (K clf)
+\begin{DoxyCompactList}\small\item\em Suppression d\textquotesingle{}un couple. \end{DoxyCompactList}\item 
+bool \hyperlink{class_aliste_a88bba42ce2487335f86040b6dc1a5384}{est\+Clef} (K clf) const 
+\begin{DoxyCompactList}\small\item\em Test de la présence d\textquotesingle{}un couple. \end{DoxyCompactList}\item 
+std\+::vector$<$ K $>$ \hyperlink{class_aliste_ab10ace6a9697bff9d8a6da949a898a6a}{trousseau} ()
+\begin{DoxyCompactList}\small\item\em Accès à l\textquotesingle{}ensemble des clefs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_aliste_ac4c984dbf831565d54e4a820a957591b}{}\index{Aliste@{Aliste}!Aliste@{Aliste}}
+\index{Aliste@{Aliste}!Aliste@{Aliste}}
+\subsubsection[{Aliste}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename K  = int, typename V  = double$>$ {\bf Aliste}$<$ K, V $>$\+::{\bf Aliste} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_aliste_ac4c984dbf831565d54e4a820a957591b}
+
+
+Constructeur, créé un \hyperlink{class_aliste}{Aliste} vide. 
+
+{\bfseries Complexité} Θ(1) \hypertarget{class_aliste_a34faaac7b72f852f88b945551048554b}{}\index{Aliste@{Aliste}!````~Aliste@{$\sim$\+Aliste}}
+\index{````~Aliste@{$\sim$\+Aliste}!Aliste@{Aliste}}
+\subsubsection[{$\sim$\+Aliste}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename K  = int, typename V  = double$>$ {\bf Aliste}$<$ K, V $>$\+::$\sim${\bf Aliste} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_aliste_a34faaac7b72f852f88b945551048554b}
+
+
+Desctructeur, libère la mémoire. 
+
+{\bfseries Complexité} Θ(n), n = nombre de couples sctockés 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_aliste_a38f9c7a4bb3e682a4d2ee6df881ad011}{}\index{Aliste@{Aliste}!associer@{associer}}
+\index{associer@{associer}!Aliste@{Aliste}}
+\subsubsection[{associer}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename K  = int, typename V  = double$>$ void {\bf Aliste}$<$ K, V $>$\+::associer (
+\begin{DoxyParamCaption}
+\item[{K}]{clef, }
+\item[{V}]{valr}
+\end{DoxyParamCaption}
+)}\label{class_aliste_a38f9c7a4bb3e682a4d2ee6df881ad011}
+
+
+Ajout/\+Modification d\textquotesingle{}un couple. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clef} & la clé du couple à ajouter/modifier \\
+\hline
+{\em valr} & la valeur à lui associer\\
+\hline
+\end{DoxyParams}
+{\bfseries Complexité} O(n), n = nombre de couples stockés \hypertarget{class_aliste_a75b73a4cbf593d1fdf62d007ac08904e}{}\index{Aliste@{Aliste}!dissocier@{dissocier}}
+\index{dissocier@{dissocier}!Aliste@{Aliste}}
+\subsubsection[{dissocier}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename K  = int, typename V  = double$>$ void {\bf Aliste}$<$ K, V $>$\+::dissocier (
+\begin{DoxyParamCaption}
+\item[{K}]{clf}
+\end{DoxyParamCaption}
+)}\label{class_aliste_a75b73a4cbf593d1fdf62d007ac08904e}
+
+
+Suppression d\textquotesingle{}un couple. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clf} & la clef du couple à supprimer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAttention}{Attention}
+Ne fait rien si aucun couple n\textquotesingle{}existe pour cette clef dans la \hyperlink{class_aliste}{Aliste}
+\end{DoxyAttention}
+{\bfseries Complexité} O(n), n = nombre de couples stockés \hypertarget{class_aliste_a88bba42ce2487335f86040b6dc1a5384}{}\index{Aliste@{Aliste}!est\+Clef@{est\+Clef}}
+\index{est\+Clef@{est\+Clef}!Aliste@{Aliste}}
+\subsubsection[{est\+Clef}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename K  = int, typename V  = double$>$ bool {\bf Aliste}$<$ K, V $>$\+::est\+Clef (
+\begin{DoxyParamCaption}
+\item[{K}]{clf}
+\end{DoxyParamCaption}
+) const}\label{class_aliste_a88bba42ce2487335f86040b6dc1a5384}
+
+
+Test de la présence d\textquotesingle{}un couple. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clf} & la clef du couple à rechercher \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vrai ssi il existe un couple de clef clf dans la \hyperlink{class_aliste}{Aliste}
+\end{DoxyReturn}
+{\bfseries Complexité} O(n), n = nombre de couples stockés \hypertarget{class_aliste_a37d800351e9fb2ec7b4fce0f1d2ef15d}{}\index{Aliste@{Aliste}!est\+Vide@{est\+Vide}}
+\index{est\+Vide@{est\+Vide}!Aliste@{Aliste}}
+\subsubsection[{est\+Vide}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename K  = int, typename V  = double$>$ bool {\bf Aliste}$<$ K, V $>$\+::est\+Vide (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_aliste_a37d800351e9fb2ec7b4fce0f1d2ef15d}
+
+
+Test de l\textquotesingle{}absence de couple. 
+
+\begin{DoxyReturn}{Returns}
+vrai ssi aucun couple n\textquotesingle{}est stocké
+\end{DoxyReturn}
+{\bfseries Complexité} Θ(1) \hypertarget{class_aliste_ab10ace6a9697bff9d8a6da949a898a6a}{}\index{Aliste@{Aliste}!trousseau@{trousseau}}
+\index{trousseau@{trousseau}!Aliste@{Aliste}}
+\subsubsection[{trousseau}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename K  = int, typename V  = double$>$ std\+::vector$<$K$>$ {\bf Aliste}$<$ K, V $>$\+::trousseau (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_aliste_ab10ace6a9697bff9d8a6da949a898a6a}
+
+
+Accès à l\textquotesingle{}ensemble des clefs. 
+
+\begin{DoxyReturn}{Returns}
+un tableau contenant toutes les clefs utilisées dans la \hyperlink{class_aliste}{Aliste}
+\end{DoxyReturn}
+{\bfseries Complexité} O(n), n = nombre de couples stockés \hypertarget{class_aliste_a374b265c40c5dd4c72ea3ca6a18a4b92}{}\index{Aliste@{Aliste}!valeur\+Associee@{valeur\+Associee}}
+\index{valeur\+Associee@{valeur\+Associee}!Aliste@{Aliste}}
+\subsubsection[{valeur\+Associee}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename K  = int, typename V  = double$>$ V {\bf Aliste}$<$ K, V $>$\+::valeur\+Associee (
+\begin{DoxyParamCaption}
+\item[{K}]{clf}
+\end{DoxyParamCaption}
+) const}\label{class_aliste_a374b265c40c5dd4c72ea3ca6a18a4b92}
+
+
+Accès à la valeur associée à une clef. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clf} & la clef recherchée \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+la valeur associée 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+il existe un couple contenant clf dans la \hyperlink{class_aliste}{Aliste}
+\end{DoxyPrecond}
+{\bfseries Complexité} O(log(n)), n = nombre de couples stockés 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{aliste_8hpp}{aliste.\+hpp}\end{DoxyCompactItemize}

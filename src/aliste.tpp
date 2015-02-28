@@ -16,7 +16,11 @@ Aliste< k, v >::Aliste() // constructeur par défaut, crée Aliste vide
 /////////////////////////////////////////////////////
 template < typename k, typename v >
 Aliste< k, v > ::~Aliste() // destructeur, libère la mémoire
-{} // rien à faire
+{
+	while ( ch.tete != NULL ) {
+		dissocier( (*ch.tete).clef );
+	}	
+} 
 
 /////////////////////////////////////////////////////////////////////////
 template < typename k, typename v >
@@ -30,28 +34,25 @@ template < typename k, typename v >
 bool Aliste< k, v > :: estClef(k clef) const
 {
 	Maillon * c;		// maillon de parcours
-	
-	//cout << "est clef aliste para " << clef << endl;
+	bool trouve ;		// booléen à retourner
+
+	trouve = false;		// initialisation du booléen à faux
 	c = ch.tete;		// initialisation du maillon de parcours avec la tête
-	if ( ch.nb_elt == 0) {	// s'il n'y a aucun élément
-		return false;	// on retourne faux
+	if ( !estVide() ) {	// s'il y a des couples
+		while ( c != NULL ) {			// on parcourt chaque maillon
+			if ( (*c).clef == clef ) {	// si la clef est présente dans un maillon
+				trouve = true;		// le booléen passe à vrau
+			}
+			c = (*c).succ;			
+		}
 	}
-	//cout << "est clef aliste" << (*ch.tete).clef << endl;
-	while ( (*c).succ != NULL && (*c).clef != clef ) { // on parcourt le chaînage jusqu'a la queue ou jusqu'à ce qu'on trouve la clef
-		c = (*c).succ;
-	}
-	if ( (*c).clef == clef ){	// si la clef du maillon de parcours est la même que donné en paramètre
-		 return true;		// on retourne vrai
-	}
-	else {				// sinon
-		return false;		// on retourne faux
-	}
+	return trouve;	// retourne le booléen
 }
 
 
 //////////////////////////////////////////////////////////////////////////
 template < typename k, typename v >
-void Aliste< k, v > :: associer( k clef, v valr ) //ajoute le couple (clef,valr), ou change la valeur associée à clef s'il y en avait une
+void Aliste< k, v > :: associer( k clef, v valr ) //ajoute le couple (clef,valr), ou change la valeur associée à clef s'il y en a une
 {
 
 	Maillon * c;		// maillon de parcours
@@ -108,21 +109,20 @@ void Aliste< k, v > :: dissocier(k clef)
 	Maillon * pred;	// maillon précédent le maillon de parcours
 	
 	c = ch.tete;	// initialisation du maillon de parcours avec le maillon de tête
-	pred = ch.tete;	// initialisation du maillon précédent avec le maillon de tête
-	if ( (*c).clef == clef ) {		// si la clef est en tête
-		ch.tete = (*c).succ;		// la tête devient le maillon qui la suit 
-		delete(c);			// on supprime l'ancienne tête
-		ch.nb_elt = ch.nb_elt - 1;	// mise a jour du nombre de couple (clef, valeur) dans la aliste
+	if ( (*c).clef == clef ) {
+		ch.tete = (*ch.tete).succ;
+		delete(c);
+		ch.nb_elt = ch.nb_elt - 1;
 	}
-	else {	//sinon on parcourt le chainage
-		while ( (*c).succ != NULL ) {
-			pred = c;	// on stocke le maillon pour avoir le précédent
-			c = (*c).succ;	// on passe au maillon suivant
-			if ( (*c).clef == clef ) {
-				(*pred).succ = (*c).succ;	// le maillon précédent le maillon à supprimer pointe vers le maillon suivant celui-ci
-				delete(c);			// on supprime le maillon contenant la clef
-				ch.nb_elt = ch.nb_elt - 1;	// mise a jour du nombre de couple (clef, valeur) dans la aliste
-			}
+	else {
+		while ( c != NULL && (*c).clef != clef ) {
+			pred = c;
+			c = (*c).succ;
+		}
+		if ( c != NULL ){
+			(*pred).succ = (*c).succ;
+			delete(c);
+			ch.nb_elt = ch.nb_elt - 1;
 		}
 	}
 	
