@@ -15,7 +15,7 @@
  * @brief Patron de classe implémentant des tables assiociatives K-->V
  * 
  */
-template < typename K = int  , typename V = double >
+template < typename K, typename V >
 class Aliste
 {
 	private :

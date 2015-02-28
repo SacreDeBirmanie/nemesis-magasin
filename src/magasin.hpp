@@ -66,8 +66,6 @@ class Magasin
        * @return le prix unitaire du produit p
        * @pre le produit est dans le catalogue
        * 
-       * @attention À implémenter
-       * 
        * @b Complexité <em>À déterminer</em>
        */
       double tarif(const Produit & p) const;
@@ -77,8 +75,6 @@ class Magasin
        * @param p le produit
        * @return la quantité du produit p en stock, ou 0 s'il n'est pas en stock
        * @pre le produit est dans le catalogue
-       * 
-       * @attention À implémenter
        * 
        * @b Complexité <em>À déterminer</em>
        */
@@ -91,8 +87,6 @@ class Magasin
        * @pre Le produit doit exister dans le catalogue et être en quantité suffisante
        *        en stock
        * @post si sa quantité tombe à 0, le produit est retiré du stock
-       * 
-       * @attention À implémenter
        * 
        * @b Complexité <em>À déterminer</em>
        */
@@ -115,8 +109,6 @@ class Magasin
        * @return l'ensemble des produits dont le stock est inexistant ou strictement 
        * inférieur à 10 unités
        * 
-       * @attention À implémenter
-       * 
        * @b Complexité <em>À déterminer</em>
        */
       std::vector<Produit> inventaire() const;
@@ -125,7 +117,6 @@ class Magasin
        * @brief Calculer le capital marchand du magasin
        * @return le prix total des marchandises stockées
        * 
-       * @attention À implémenter
        * 
        * @b Complexité <em>À déterminer</em>
        */
@@ -136,8 +127,6 @@ class Magasin
        * 
        * Un produit est inutile si sa valeur stockée (prix*quantité) est strictement inférieure à 10
        * @return le prix total des produits jetées
-       * 
-       * @attention À implémenter
        * 
        * @b Complexité <em>À déterminer</em>
        */
