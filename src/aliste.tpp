@@ -54,35 +54,20 @@ bool Aliste< k, v > :: estClef(k clef) const
 template < typename k, typename v >
 void Aliste< k, v > :: associer( k clef, v valr ) //ajoute le couple (clef,valr), ou change la valeur associée à clef s'il y en a une
 {
+	Maillon * nouveau; 		// nouveau maillon à insérer
 
-	Maillon * c;		// maillon de parcours
-	c = ch.tete;		// initialisation du maillon de parcours avec le maillon de tête pour commencer au début
-
-	if ( estClef(clef) ) {	// si la clef donné en paramètre est déjà utilisée
-		while ((*c).clef != clef ) {	// on parcourt le chaînage jusqu'a trouvé le maillon contenant cette clef
-			c = (*c).succ;	
-		}
-		(*c).valr=valr;			// on change la valeur du maillon avec la valeur donnée en paramètre	
+	nouveau = new (Maillon);	// allocation mémoire pour le nouveau maillon
+	(*nouveau).clef = clef;		// la clef du nouveau maillon est celle placée en paramètre
+	(*nouveau).valr = valr; 	// la valeur du nouveau maillon est celle placée en paramètre
+	if ( estClef(clef) ) {		// si la clef donné en paramètre est déjà utilisée
+		dissocier(clef);	// on supprime le couple
 	}
-	else {
-		Maillon * nouveau; 		// nouveau maillon à insérer
-		nouveau = new (Maillon);	// allocation mémoire pour le nouveau maillon
-		(*nouveau).clef = clef;		// la clef du nouveau maillon est celle placée en paramètre
-		(*nouveau).valr = valr; 	// la valeur du nouveau maillon est celle placée en paramètre
-		(*nouveau).succ = NULL;		// le nouveau maillon sera la queue du chainage
-
-		if ( ch.nb_elt == 0){ 		// cas où le chaînage est vide
-			ch.tete = nouveau;	// le nouveau maillon devient la tête du chaînage
-			(*nouveau).succ = NULL; // le successeur du nouveau maillon ne pointe sur aucun maillon
-		}
-		else {				// cas où le chaînage n'est pas vide
-			while ( (*c).succ != NULL ) {	// tant que le successeur du maillon de parcours est suivis par un autre maillon
-				c = (*c).succ;		// le maillon de parcours passe au maillon suivant
-			}
-			(*c).succ = nouveau;		// la queue devient le nouveau maillon
-		}
-	ch.nb_elt = ch.nb_elt + 1;	//mise a jour du nombre de couple (clef, valeur) dans la aliste
+	else {					// sinon
+		ch.nb_elt = ch.nb_elt + 1;	// mise a jour du nombre de couple (clef, valeur) dans la aliste
 	}
+	(*nouveau).succ = ch.tete;
+	ch.tete = nouveau;
+	
 }
 	
 
@@ -131,15 +116,15 @@ void Aliste< k, v > :: dissocier(k clef)
 
 //////////////////////////////////////////////////////////////////////////
 template < typename k, typename v >
-std::vector<k> Aliste< k, v > :: trousseau()
+std::vector<k> Aliste< k, v > :: trousseau() const
 {
 	std::vector<k> clfs;
 	Maillon * c;		// maillon de parcours
-	int i = 0;		// indice du tableau
+	int i = 0;		// indice du vecteur
 
 	c=ch.tete;		// maillon de parcours initialisé à la tête
 	while ( c != NULL) {	// tant que le maillon de parcours pointe sur un maillon du chainage
-		clfs.push_back((*c).clef);	// on stocke les clefs de chaque maillon dans le tableau donné en paramètre
+		clfs.push_back((*c).clef);	// on stocke les clefs de chaque maillon dans le vecteur
 		i = i+1;		// on met a jours l'indice
 		c = (*c).succ;		// on passe au maillon suivant
 	}		

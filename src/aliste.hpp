@@ -82,7 +82,7 @@ class Aliste
 		* @return la valeur associée
 		* @pre il existe un couple contenant clf dans la Aliste
 		* 
-		* @b Complexité O(log(n)), n = nombre de couples stockés
+		* @b Complexité O(n), n = nombre de couples stockés
 		*/
 		V valeurAssociee(K clf) const;
 
@@ -110,8 +110,7 @@ class Aliste
 		* 
 		* @b Complexité O(n), n = nombre de couples stockés
 		*/
-		
-		std::vector<K> trousseau();
+		std::vector<K> trousseau() const;
 
 }; // class Aliste<K,V>
 
