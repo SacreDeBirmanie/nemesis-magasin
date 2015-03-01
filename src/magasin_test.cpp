@@ -76,7 +76,7 @@ int main()
 	STOP;
 	cout << ">>> Temps : " << TEMPS << "s" << endl << endl;
 
-	cout << "AFFICHAGE AVEC VENTE ET REDUCTION" << endl;
+	cout << "AFFICHAGE APRES VENTE ET REDUCTION" << endl;
 	cout << "---------" << endl;
 	START;
 	cout << "vente de 3 dessert_1 " << endl;

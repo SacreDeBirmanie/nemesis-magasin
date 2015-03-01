@@ -62,6 +62,7 @@ double Magasin<TableAssociative>::tarif(const Produit & p) const
 template < template <typename K, typename V> class TableAssociative >
 unsigned int Magasin<TableAssociative>::stock(const Produit & p) const
 {
+	// retourne la quantité si le produit est en stock, retourne zéro sinon.
 	if ( stock_.estClef(p.codebarre()) ){
    		return stock_.valeurAssociee(p.codebarre());
 	}
@@ -74,9 +75,11 @@ unsigned int Magasin<TableAssociative>::stock(const Produit & p) const
 template < template <typename K, typename V> class TableAssociative >
 void Magasin<TableAssociative>::vendre(const Produit & p, unsigned int qt)
 {
+	// différence entre la quantité en stock et la quantité donnée en paramètre
 	int diff;
 
 	diff = stock(p) - qt;
+	// si la différence est supérieur ou égale à zéro, alors suppresion du produit du stock si sa quantité devient nulle, ou mise à jour de la quantité
 	if ( diff >= 0 ){
 		if ( diff == 0 ) {
 			stock_.dissocier( p.codebarre() );
@@ -92,17 +95,17 @@ void Magasin<TableAssociative>::vendre(const Produit & p, unsigned int qt)
 template < template <typename K, typename V> class TableAssociative >
 void Magasin<TableAssociative>::solder(const Produit & p, unsigned int promo)
 {
-	if ( prix_.estClef(p.codebarre()) && promo >= 1 && promo <= 99 ){
-		prix_.associer( p.codebarre(), tarif(p)-( tarif(p)*((1.0*promo)/100)) );
-	}
+	prix_.associer( p.codebarre(), tarif(p)-( tarif(p)*((1.0*promo)/100)) );
 }
 
 //--------------------------------------------------------------------
 template < template <typename K, typename V> class TableAssociative >
 std::vector<Produit> Magasin<TableAssociative>::inventaire() const
 {
+	// vecteur contenant les produit de l'inventaire
 	std::vector<Produit> res;
 
+	// parcourt du catalogue en ajoutant chaque produit ayant une quantité inférieur à 10 dans le vecteur
 	for( auto p : catalogue() ){
 		if ( stock(p) < 10 ){
 			res.push_back(p);
@@ -115,8 +118,10 @@ std::vector<Produit> Magasin<TableAssociative>::inventaire() const
 template < template <typename K, typename V> class TableAssociative >
 double Magasin<TableAssociative>::capital()
 {
+	// le capital initialisé à 0
 	double somme = 0;	
 
+	// parcourt du catalogue en incrémentant le capital pour chaque produit
 	for( auto p : catalogue() ){
 		somme = somme + (tarif(p)*stock(p));
 	}
@@ -127,11 +132,16 @@ double Magasin<TableAssociative>::capital()
 template < template <typename K, typename V> class TableAssociative >
 double Magasin<TableAssociative>::nettoyageDePrintemps()
 {
-	double somme = 0;	
+	// prix total des produits jétés initialisé à 0
+	double somme = 0;
+	// quantite*prix
+	double prix;	
 
+	// parcourt du catalogue en incrémentant le prix total quand le prix est inférieur à 10
 	for( auto p : catalogue() ){
-		if ( (tarif(p)*stock(p)) < 10 ) { 
-			somme = somme + (tarif(p)*stock(p));
+		prix = tarif(p)*stock(p)
+		if ( prix < 10 ) { 
+			somme = somme + prix;
 		}
 	}
 	return somme;

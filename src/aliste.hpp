@@ -1,6 +1,6 @@
 /**
  * @file aliste.hpp
- * @author Gonnord Kevin 
+ * @author Gonnord Kévin 
  * @since 11/02/2015
  * @brief Définition du type AListe générique par type des clefs et des valeurs
 **/
@@ -64,7 +64,7 @@ class Aliste
 		* @param clef la clé du couple à ajouter/modifier
 		* @param valr la valeur à lui associer
 		* 
-		* @b Complexité O(n), n = nombre de couples stockés
+		* @b Complexité O(n), nbc = nombre de couples stockés
 		*/
 		void associer(K clef, V valr);
 
@@ -82,7 +82,7 @@ class Aliste
 		* @return la valeur associée
 		* @pre il existe un couple contenant clf dans la Aliste
 		* 
-		* @b Complexité O(n), n = nombre de couples stockés
+		* @b Complexité O(nbc), nbc = nombre de couples stockés
 		*/
 		V valeurAssociee(K clf) const;
 
@@ -91,7 +91,7 @@ class Aliste
 		* @param clf la clef du couple à supprimer
 		* @attention Ne fait rien si aucun couple n'existe pour cette clef dans la Aliste
 		* 
-		* @b Complexité O(n), n = nombre de couples stockés
+		* @b Complexité O(nbc), nbc = nombre de couples stockés
 		*/
 		void dissocier(K clf);
 
@@ -100,7 +100,7 @@ class Aliste
 		* @param clf la clef du couple à rechercher
 		* @return vrai ssi il existe un couple de clef clf dans la Aliste
 		* 
-		* @b Complexité O(n), n = nombre de couples stockés
+		* @b Complexité O(nbc), nbc = nombre de couples stockés
 		*/
 		bool estClef(K clf) const;
 
@@ -108,7 +108,7 @@ class Aliste
 		* @brief Accès à l'ensemble des clefs
 		* @return un tableau contenant toutes les clefs utilisées dans la Aliste
 		* 
-		* @b Complexité O(n), n = nombre de couples stockés
+		* @b Complexité O(nbc), nbc = nombre de couples stockés
 		*/
 		std::vector<K> trousseau() const;
 
