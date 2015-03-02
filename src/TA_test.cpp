@@ -36,6 +36,9 @@ int main()
 	for (int i=0; i<clefs.size(); i++){
 		cout << "clef : " << clefs[i] << ", valeur : " << m.valeurAssociee(clefs[i]) << endl;
 	}
+	cout << " --------------------------------- " << endl;
+	cout << "suppresion du couple qui a pour clef 1024 " << endl;
+	cout << " --------------------------------- " << endl;
 	m.dissocier(1024);
 	clefs = m.trousseau();
 	for (int i=0; i<clefs.size(); i++){

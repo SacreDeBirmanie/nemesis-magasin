@@ -139,7 +139,7 @@ double Magasin<TableAssociative>::nettoyageDePrintemps()
 
 	// parcourt du catalogue en incrémentant le prix total quand le prix est inférieur à 10
 	for( auto p : catalogue() ){
-		prix = tarif(p)*stock(p)
+		prix = tarif(p)*stock(p);
 		if ( prix < 10 ) { 
 			somme = somme + prix;
 		}

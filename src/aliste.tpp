@@ -55,7 +55,8 @@ bool Aliste< k, v > :: estClef(k clef) const
 		while ( c != NULL ) {			
 			if ( (*c).clef == clef ) {
 				trouve = true;		
-			c = (*c).succ;			
+			}
+			c = (*c).succ;	
 		}
 	}
 	return trouve;
