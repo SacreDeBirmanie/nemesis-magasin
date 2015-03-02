@@ -11,7 +11,7 @@
 
 #include "aliste.hpp"
 #include "htable.hpp"
-#include "mappe.hpp"
+//#include "mappe.hpp"
 
 using namespace std;
 
@@ -19,7 +19,7 @@ using namespace std;
 // Programme principal
 int main()
 {
-	Aliste<int,double> m;
+	Htable<int,double> m;
 	vector<int> clefs;
 
 	cout << boolalpha;

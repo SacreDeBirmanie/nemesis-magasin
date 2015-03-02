@@ -1,71 +1,70 @@
 /*
 * File : Hashage.cpp
 * Fichier contenant l'implémentation de la classe Hashage
-* Authors : Francois Hallereau & Sébastien Vallée
+* Authors : Kevin Gonnard & Sébastien Vallée
 */
 
-#include "Hashage.hpp"
 #include <typeinfo>
 //---------------------------------------
 
 //Constructeur
 template<typename K, typename V>
-Hashage<K,V>::Hashage() : hacher(new fonctionsDeHashage()){}
+Htable<K,V>::Htable() : hacher(new fonctionsDeHashage()){}//creation de l'objet pour les fonctions de hash
 
 
 //Destructeur
 template<typename K, typename V>
-Hashage<K,V>::~Hashage() {}
+Htable<K,V>::~Htable() {}
 
 
 //Fonction de hachage
 template<typename K, typename V>
-int Hashage<K,V>::hash(K cle) {
-   return hacher->hash(cle,TAILLE);
+int Htable<K,V>::hash(K cle) {
+   return hacher->hash(cle,TAILLE);//retourne le code de hash de la clef
 }
 
 //ajoute le couple (clf,valr) ou change la valeur associée à clf s'il y en avait une
 template <typename K,typename V>
-void Hashage<K,V>::associer(K clf,V valr){
+void Htable<K,V>::associer(K clf,V valr){
 	int hashageur = hash(clf);
-	this->list[hashageur].associer(clf,valr);
-	indices.insert(hashageur);
+	this->list[hashageur].associer(clf,valr);//insere dans la Aliste de l'indice du code de hash
+	indices.insert(hashageur);//insert l'indice dans l'ensemble des indices utilisés
 }
 
 
 template <typename K,typename V>
-bool Hashage<K,V>::estVide(){
+bool Htable<K,V>::estVide(){
    return indices.empty();
 
 }
 
 template <typename K,typename V>
-V Hashage<K,V>::valeurAssociee(K clf){
+V Htable<K,V>::valeurAssociee(K clf){
     return this->list[hash(clf)].valeurAssociee(clf);
 }
 
 template <typename K,typename V>
-void Hashage<K,V>::dissocier(K clf){
+void Htable<K,V>::dissocier(K clf){
 	int hashageur = hash(clf);
-    this->list[hashageur].dissocier(clf);
-    if(this->list[hashageur].estVide())
-		indices.erase(hashageur);
+    this->list[hashageur].dissocier(clf);//dissocie la clef de la Aliste
+    if(this->list[hashageur].estVide())//on vérifie si la Aliste est vide
+		indices.erase(hashageur);//sioui on l'enleve de l'ensemble des indices
     
 }
 
 
 template <typename K,typename V>
-bool Hashage<K,V>::estClef(K cle){
+bool Htable<K,V>::estClef(K cle){
     return this->list[hash(cle)].estClef(cle);
 }
 
 template <typename K,typename V>
-std::vector<K> Hashage<K,V>::trousseau(){
-    std::vector<K> clfs;
+std::vector<K> Htable<K,V>::trousseau(){
+    std::vector<K> clfs;//vector à retourner
     int j,taille;
-    if(! this->estVide() ) {
+    if(! this->estVide() ) { //on vérifie quenotre htable n'est pas vide
         std::set<int>::iterator it = this->indices.begin() ;
-		for (it ; it != this->indices.end() ; it ++)
+		for (it ; it != this->indices.end() ; it ++) // on parcour la l'ensemble des indices contenant au moins une valeur
 		{
            std::vector<K> temp; //on crée un tableau temporaire stockant les clef de la AList courante
 			temp = (this->list[*it]).trousseau(); //on applique trousseau(...) sur la AList courante
