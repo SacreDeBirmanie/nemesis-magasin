@@ -12,7 +12,7 @@
 #include <vector>
 #include <set>
 //taille fixe de la table de hashage
-#define TAILLE 50
+#define TAILLE 500
 
 /**
  * @class Htable<K,V> htable.hpp
