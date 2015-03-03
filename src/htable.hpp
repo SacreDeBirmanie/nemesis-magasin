@@ -8,7 +8,7 @@
 #define HTABLE_H
 
 #include "aliste.hpp"
-#include "fonctionsDeHashage.cpp"
+#include "fonctionsDeHashage.hpp"
 #include <vector>
 #include <set>
 //taille fixe de la table de hashage
@@ -52,7 +52,7 @@ class Htable{
 		* 
 		* @b Complexité O(1), nbc = nombre de couples stockés
 		*/
-		int hash(K clf);
+		int hash(K clf) const;
 		
 		/**
 		* @brief Ajout/Modification d'un couple
@@ -69,7 +69,7 @@ class Htable{
 		* 
 		* @b Complexité Θ(1)
 		*/
-		bool estVide(); 
+		bool estVide() const;
 		
 		/**
 		* @brief Accès à la valeur associée à une clef
@@ -79,7 +79,7 @@ class Htable{
 		* 
 		* @b Complexité O(log nbc), nbc = nombre de couples stockés
 		*/
-		V valeurAssociee(K clf);
+		V valeurAssociee(K clf) const;
 		
 		/**
 		* @brief Suppression d'un couple
@@ -97,7 +97,7 @@ class Htable{
 		* 
 		* @b Complexité O(log nbc), nbc = nombre de couples stockés
 		*/
-		bool estClef(K clf);
+		bool estClef(K clf) const;
 		
 		/**
 		* @brief Accès à l'ensemble des clefs
@@ -105,7 +105,7 @@ class Htable{
 		* 
 		* @b Complexité O(nbc), nbc = nombre de couples stockés
 		*/
-		std::vector<K> trousseau();
+		std::vector<K> trousseau() const;
 
 };
 

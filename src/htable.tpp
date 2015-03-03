@@ -1,5 +1,5 @@
 /**
- * @file Htable.tpp
+ * @file htable.tpp
  * @author Gonnord Kévin, Vallée Sébastien
  * @since 11/02/2015
  * @brief Implémentation de la classe Htable<K,V>
@@ -21,7 +21,7 @@ Htable<K,V>::~Htable() {}
 
 //Fonction de hachage
 template<typename K, typename V>
-int Htable<K,V>::hash(K cle) {
+int Htable<K,V>::hash(K cle) const {
    return hacher->hash(cle,TAILLE);//retourne le code de hash de la clef
 }
 
@@ -35,13 +35,13 @@ void Htable<K,V>::associer(K clf,V valr){
 
 
 template <typename K,typename V>
-bool Htable<K,V>::estVide(){
+bool Htable<K,V>::estVide() const{
    return indices.empty();
 
 }
 
 template <typename K,typename V>
-V Htable<K,V>::valeurAssociee(K clf){
+V Htable<K,V>::valeurAssociee(K clf) const{
     return this->list[hash(clf)].valeurAssociee(clf);
 }
 
@@ -56,12 +56,12 @@ void Htable<K,V>::dissocier(K clf){
 
 
 template <typename K,typename V>
-bool Htable<K,V>::estClef(K cle){
+bool Htable<K,V>::estClef(K cle) const{
     return this->list[hash(cle)].estClef(cle);
 }
 
 template <typename K,typename V>
-std::vector<K> Htable<K,V>::trousseau(){
+std::vector<K> Htable<K,V>::trousseau() const{
     std::vector<K> clfs;//vector à retourner
     int j,taille;
     if(! this->estVide() ) { //on vérifie quenotre htable n'est pas vide
