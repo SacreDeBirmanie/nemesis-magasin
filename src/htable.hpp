@@ -40,7 +40,7 @@ class Htable{
 		/**
 		* @brief Desctructeur, libère la mémoire
 		*
-		* @b Complexité Θ(nbc), nbc = nombre de couples sctockés 
+		* @b Complexité Θ(nbc), nbc = nombre de couples stockés 
 		*/
 		~Htable();
 		
