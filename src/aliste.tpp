@@ -24,7 +24,7 @@ template < typename k, typename v >
 Aliste< k, v > ::~Aliste() 
 {
 	// désallocation chaque maillon
-	while ( ch.tete != NULL ) {
+	while ( !estVide() ) {
 		dissocier( (*ch.tete).clef );
 	}	
 } 
@@ -94,10 +94,7 @@ void Aliste< k, v > :: associer( k clef, v valr )
 /////////////////////////////////////////////////////////////////////////
 template < typename k, typename v >
 v Aliste< k, v > :: valeurAssociee(k clef) const
-{
-	// assertion qui vérifié si la clef donné en paramètre est utilisée
-	assert(estClef(clef));	
-	
+{	
 	// maillon de parcours
 	Maillon * c;		
 	

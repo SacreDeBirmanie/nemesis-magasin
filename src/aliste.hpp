@@ -108,7 +108,7 @@ class Aliste
 		* @brief Accès à l'ensemble des clefs
 		* @return un tableau contenant toutes les clefs utilisées dans la Aliste
 		* 
-		* @b Complexité O(nbc), nbc = nombre de couples stockés
+		* @b Complexité Θ(nbc), nbc = nombre de couples stockés
 		*/
 		std::vector<K> trousseau() const;
 

@@ -43,11 +43,11 @@ int main()
 	cout << "CONSTRUCTION" << endl;
 	cout << "------------" << endl;
 	START;
-	Magasin<Mappe> m("entrepot_10000.txt");
+	Magasin<Aliste> m("entrepot_11.txt");
 	STOP;
 	cout << ">>> Temps : " << TEMPS << "s" << endl << endl;
 
-	/*cout << "AFFICHAGE" << endl;
+	cout << "AFFICHAGE" << endl;
 	cout << "---------" << endl;
 	START;
 	for (auto p : m.catalogue())
@@ -76,7 +76,7 @@ int main()
 	STOP;
 	cout << ">>> Temps : " << TEMPS << "s" << endl << endl;
 
-	/*cout << "AFFICHAGE APRES VENTE ET REDUCTION" << endl;
+	cout << "AFFICHAGE APRES VENTE ET REDUCTION" << endl;
 	cout << "---------" << endl;
 	START;
 	cout << "vente de 3 dessert_1 " << endl;
@@ -91,9 +91,9 @@ int main()
 		cout << "  qté=" << m.stock(p) << endl;
 	}
 	STOP;
-	cout << ">>> Temps : " << TEMPS << "s" << endl << endl;*/
+	cout << ">>> Temps : " << TEMPS << "s" << endl << endl;
 
-	/*cout << "AFFICHAGE DE L'INVENTAIRE" << endl;
+	cout << "AFFICHAGE DE L'INVENTAIRE" << endl;
 	cout << "---------" << endl;
 	START;
 	for (auto p : m.inventaire())
@@ -106,7 +106,7 @@ int main()
 		cout << "  qté=" << m.stock(p) << endl;
 	}
 	STOP;
-	cout << ">>> Temps : " << TEMPS << "s" << endl << endl;*/
+	cout << ">>> Temps : " << TEMPS << "s" << endl << endl;
 
 	cout << "CALCUL DU CAPITAL" << endl;
 	cout << "---------" << endl;

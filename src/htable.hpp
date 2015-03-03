@@ -12,7 +12,7 @@
 #include <vector>
 #include <set>
 //taille fixe de la table de hashage
-#define TAILLE 500
+#define TAILLE 100
 
 /**
  * @class Htable<K,V> htable.hpp
@@ -59,7 +59,7 @@ class Htable{
 		* @param clef la clé du couple à ajouter/modifier
 		* @param valr la valeur à lui associer
 		* 
-		* @b Complexité O(log nbc), nbc = nombre de couples stockés
+		* @b Complexité O(nbc), nbc = nombre de couples stockés
 		*/
 		void associer(K clf,V valr); 
 		
@@ -77,7 +77,7 @@ class Htable{
 		* @return la valeur associée
 		* @pre il existe un couple contenant clf dans la hTable
 		* 
-		* @b Complexité O(log nbc), nbc = nombre de couples stockés
+		* @b Complexité O(nbc), nbc = nombre de couples stockés
 		*/
 		V valeurAssociee(K clf) const;
 		
@@ -86,7 +86,7 @@ class Htable{
 		* @param clf la clef du couple à supprimer
 		* @attention Ne fait rien si aucun couple n'existe pour cette clef dans la Htable
 		* 
-		* @b Complexité O(log nbc), nbc = nombre de couples stockés
+		* @b Complexité O(nbc), nbc = nombre de couples stockés
 		*/
 		void dissocier(K clf);
 		
@@ -95,7 +95,7 @@ class Htable{
 		* @param clf la clef du couple à rechercher
 		* @return vrai ssi il existe un couple de clef clf dans la Aliste
 		* 
-		* @b Complexité O(log nbc), nbc = nombre de couples stockés
+		* @b Complexité O(nbc), nbc = nombre de couples stockés
 		*/
 		bool estClef(K clf) const;
 		
@@ -103,7 +103,7 @@ class Htable{
 		* @brief Accès à l'ensemble des clefs
 		* @return un tableau contenant toutes les clefs utilisées dans la Htable
 		* 
-		* @b Complexité O(nbc), nbc = nombre de couples stockés
+		* @b Complexité Θ(nbc), nbc = nombre de couples stockés
 		*/
 		std::vector<K> trousseau() const;
 
