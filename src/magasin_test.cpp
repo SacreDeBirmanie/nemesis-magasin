@@ -1,7 +1,7 @@
 #include <iostream>
 #include <ctime>
 
-#include "produit.hpp"
+#include "produit.cpp"
 #include "magasin.hpp"
 
 #include "aliste.hpp"
