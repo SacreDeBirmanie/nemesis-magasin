@@ -1,6 +1,6 @@
 /**
  * @file aliste.hpp
- * @author Gonnord Kévin 
+ * @author Gonnord Kévin, Vallée Sébastien
  * @since 11/02/2015
  * @brief Définition du type AListe générique par type des clefs et des valeurs
 **/
@@ -55,7 +55,7 @@ class Aliste
 		/**
 		* @brief Desctructeur, libère la mémoire
 		*
-		* @b Complexité Θ(n), n = nombre de couples sctockés 
+		* @b Complexité Θ(nbc), n = nombre de couples sctockés 
 		*/
 		~Aliste(); 
 	   
@@ -64,7 +64,7 @@ class Aliste
 		* @param clef la clé du couple à ajouter/modifier
 		* @param valr la valeur à lui associer
 		* 
-		* @b Complexité O(n), nbc = nombre de couples stockés
+		* @b Complexité O(nbc), nbc = nombre de couples stockés
 		*/
 		void associer(K clef, V valr);
 
@@ -116,5 +116,5 @@ class Aliste
 
 #include "aliste.tpp" // définition des méthodes 
 /******************************************************************************/
-// K.Gonnord , S.Minot
+// K.Gonnord , V.Sébastien
 #endif // ALISTE_HPP

@@ -1,10 +1,9 @@
-/*
-* File : htable.hpp
-* Fichier contenant la déclaration de la classe Hashage
-* Authors : Kevin Gonnard & Sébastien Vallée
-*/
-
-
+/**
+ * @file htable.hpp
+ * @author Gonnord Kévin, Vallée Sébastien
+ * @since 11/02/2015
+ * @brief Définition du type Htable générique par type des clefs et des valeurs
+**/
 #ifndef HTABLE_H
 #define HTABLE_H
 
@@ -12,18 +11,22 @@
 #include "fonctionsDeHashage.cpp"
 #include <vector>
 #include <set>
-#define TAILLE 50 //taille fixe de la table de hashage
+//taille fixe de la table de hashage
+#define TAILLE 50
 
-//---------------------------------------
-
-
-
-
+/**
+ * @class Htable<K,V> htable.hpp
+ * 
+ * @brief Patron de classe implémentant des tables de hashages K-->V
+ * 
+ */
 template <typename K,typename V>
 class Htable{
 	private:
-		fonctionsDeHashage * hacher;//objet permettant de retourner un hash code en fonction d'un type de clef
-		std::set<K> indices;// cet attribut permet de connaitre les indices du tableau contenant une Aliste non vide (permettant une recherche plus rapide des clefs pour trousseau)
+		//objet permettant de retourner un hash code en fonction d'un type de clef
+		fonctionsDeHashage * hacher;
+		// cet attribut permet de connaitre les indices du tableau contenant une Aliste non vide (permettant une recherche plus rapide des clefs pour trousseau)
+		std::set<K> indices;
 		Aliste<K,V> list[TAILLE];
 
 	public :
@@ -37,7 +40,7 @@ class Htable{
 		/**
 		* @brief Desctructeur, libère la mémoire
 		*
-		* @b Complexité Θ(n), n = nombre de couples sctockés 
+		* @b Complexité Θ(nbc), nbc = nombre de couples sctockés 
 		*/
 		~Htable();
 		
@@ -46,6 +49,7 @@ class Htable{
 		* @param clef la clé du couple à "hasher"
 		* @return un entier correspond au hash de la clef
 		* @pre la clf est d'un des types suivants : entier, flottant, caractère, chaine de caractère
+		* 
 		* @b Complexité O(1), nbc = nombre de couples stockés
 		*/
 		int hash(K clf);
@@ -73,7 +77,7 @@ class Htable{
 		* @return la valeur associée
 		* @pre il existe un couple contenant clf dans la hTable
 		* 
-		* @b Complexité O(log n), nbc = nombre de couples stockés
+		* @b Complexité O(log nbc), nbc = nombre de couples stockés
 		*/
 		V valeurAssociee(K clf);
 		
@@ -82,7 +86,7 @@ class Htable{
 		* @param clf la clef du couple à supprimer
 		* @attention Ne fait rien si aucun couple n'existe pour cette clef dans la Htable
 		* 
-		* @b Complexité O(log n), nbc = nombre de couples stockés
+		* @b Complexité O(log nbc), nbc = nombre de couples stockés
 		*/
 		void dissocier(K clf);
 		
@@ -91,7 +95,7 @@ class Htable{
 		* @param clf la clef du couple à rechercher
 		* @return vrai ssi il existe un couple de clef clf dans la Aliste
 		* 
-		* @b Complexité O(log n), nbc = nombre de couples stockés
+		* @b Complexité O(log nbc), nbc = nombre de couples stockés
 		*/
 		bool estClef(K clf);
 		

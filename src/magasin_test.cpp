@@ -43,7 +43,7 @@ int main()
 	cout << "CONSTRUCTION" << endl;
 	cout << "------------" << endl;
 	START;
-	Magasin<Aliste> m("entrepot_11.txt");
+	Magasin<Htable> m("entrepot_11.txt");
 	STOP;
 	cout << ">>> Temps : " << TEMPS << "s" << endl << endl;
 

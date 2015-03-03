@@ -1,6 +1,6 @@
 /**
  * @file alist.tpp
- * @author Gonnord Kévin
+ * @author Gonnord Kévin, Vallée Sébastien
  * @since 11/02/2015
  * @brief Implémentation de la classe Aliste<K,V>
  * 
@@ -49,7 +49,7 @@ bool Aliste< k, v > :: estClef(k clef) const
 	trouve = false;	
 	// initialisation du maillon de parcours avec la tête	
 	c = ch.tete;
-	// parcrout du chainage s'il y a au moins un couple,
+	// parcourt du chainage s'il y a au moins un couple,
 	// le booléen devient vrai si la clef donnée en paramètre correspond à la clef d'un couple		
 	if ( !estVide() ) {	
 		while ( c != NULL ) {			

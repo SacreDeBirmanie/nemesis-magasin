@@ -1,9 +1,11 @@
-/*
-* File : Hashage.cpp
-* Fichier contenant l'implémentation de la classe Hashage
-* Authors : Kevin Gonnard & Sébastien Vallée
-*/
-
+/**
+ * @file Htable.tpp
+ * @author Gonnord Kévin, Vallée Sébastien
+ * @since 11/02/2015
+ * @brief Implémentation de la classe Htable<K,V>
+ * 
+ * @b Note s'agissant d'un patron de classe, ce fichier est inclus dans htable.hpp
+**/
 #include <typeinfo>
 //---------------------------------------
 
